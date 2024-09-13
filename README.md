@@ -104,7 +104,7 @@ Before starting, make sure you have the following tools installed and configured
    # Deploy Grafana
    kubectl apply -f k8s/grafana-deployment.yaml  
    
-   #Access Grafana at http://<grafana-url>:3000.  
+   # Access Grafana at http://<grafana-url>:3000.  
  
 11. **Troubleshooting:**
    Check Pod Logs:  
