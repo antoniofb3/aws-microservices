@@ -60,8 +60,8 @@ Before starting, make sure you have the following tools installed and configured
    docker tag user-service:latest <aws_account_id>.dkr.ecr.<AWS_REGION>.amazonaws.com/user-service:latest
    docker push <aws_account_id>.dkr.ecr.<AWS_REGION>.amazonaws.com/user-service:latest
 
-6. **Apply Kubernetes Deployment Files:**
-   # Ensure that the Kubernetes deployment YAML files point to the correct Docker images in ECR. Then, apply the deployment files to deploy the microservices on EKS.
+6. **Apply Kubernetes Deployment Files:**  
+   Ensure that the Kubernetes deployment YAML files point to the correct Docker images in ECR. Then, apply the deployment files to deploy the microservices on EKS.
    ```bash
    # Deploy Auth Service
    kubectl apply -f k8s/auth-deployment.yaml
@@ -75,18 +75,18 @@ Before starting, make sure you have the following tools installed and configured
    kubectl apply -f k8s/user-deployment.yaml
    kubectl apply -f k8s/user-service.yaml
 
-7. **Set Up Ingress for the Services:**
-   # Use an Ingress controller or Load Balancer to expose the services to the public. If using Ingress, ensure that AWS Load Balancer Controller is deployed.
+7. **Set Up Ingress for the Services:**  
+   Use an Ingress controller or Load Balancer to expose the services to the public. If using Ingress, ensure that AWS Load Balancer Controller is deployed.
    ```bash
    kubectl apply -f k8s/ingress.yaml 
 
-8. **Configure CloudWatch for Logging and Monitoring:**
-   # Ensure that service logs are sent to AWS CloudWatch for centralized logging and monitoring. You can enable CloudWatch logging for EKS nodes or configure each service to output logs to CloudWatch.
+8. **Configure CloudWatch for Logging and Monitoring:**  
+   Ensure that service logs are sent to AWS CloudWatch for centralized logging and monitoring. You can enable CloudWatch logging for EKS nodes or configure each service to output logs to CloudWatch.
    ```bash
    kubectl logs <pod-name> 
 
-9. **Testing: Access the Services:**
-   # Once the services are deployed, retrieve the public IP of the load balancer to access the services
+9. **Testing: Access the Services:**  
+   Once the services are deployed, retrieve the public IP of the load balancer to access the services
    ```bash
    kubectl get services 
 
@@ -95,30 +95,31 @@ Before starting, make sure you have the following tools installed and configured
    - Product Service: http://<load-balancer-ip>/products
    - User Service: http://<load-balancer-ip>/users 
 
-10. **Set Up Monitoring with Prometheus and Grafana:**
-   # Deploy Prometheus
+10. **Set Up Monitoring with Prometheus and Grafana:**  
+
+   Deploy Prometheus
    ```bash
-   kubectl apply -f k8s/prometheus-deployment.yaml
+   kubectl apply -f k8s/prometheus-deployment.yaml  
 
    # Deploy Grafana
-   kubectl apply -f k8s/grafana-deployment.yaml 
-
+   kubectl apply -f k8s/grafana-deployment.yaml  
+   
    #Access Grafana at http://<grafana-url>:3000.
  
 ### Troubleshooting
-1. **Check Pod Logs:**
-   # If any of the services are not functioning as expected, check the pod logs
+1. **Check Pod Logs:**  
+   If any of the services are not functioning as expected, check the pod logs
    ```bash
    kubectl logs <pod-name>
 
-2. **Verify Cluster Health:**
-   # Check that all pods and services are running
+2. **Verify Cluster Health:**  
+   Check that all pods and services are running
    ```bash
    kubectl get pods
    kubectl get services 
 
-3. **Inspect Load Balancer:**
-   # If the services are not accessible, inspect the status of the load balancer
+3. **Inspect Load Balancer:**  
+   If the services are not accessible, inspect the status of the load balancer
    ```bash
    kubectl describe service <service-name>
 
