@@ -107,6 +107,7 @@ Before starting, make sure you have the following tools installed and configured
    #Access Grafana at http://<grafana-url>:3000.
  
 ### Troubleshooting
+
 1. **Check Pod Logs:**  
    If any of the services are not functioning as expected, check the pod logs
    ```bash
