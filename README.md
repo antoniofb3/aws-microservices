@@ -29,7 +29,7 @@ Before starting, make sure you have the following tools installed and configured
    ```bash
    eksctl create cluster --name microservices-cluster --region <AWS_REGION> --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed
 
-3. **After the EKS cluster is created connect kubectl to the EKS Cluster:**
+3. **After the EKS cluster is created connect kubectl to the EKS Cluster:**  
    This command will update the kubeconfig file to enable kubectl to communicate with your EKS cluster.
    ```bash
    aws eks --region <AWS_REGION> update-kubeconfig --name microservices-cluster
