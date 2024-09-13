@@ -106,21 +106,18 @@ Before starting, make sure you have the following tools installed and configured
    
    #Access Grafana at http://<grafana-url>:3000.  
  
-### Troubleshooting
-
-1. **Check Pod Logs:**  
+11. **Troubleshooting:**
+   Check Pod Logs:  
    If any of the services are not functioning as expected, check the pod logs
    ```bash
-   kubectl logs <pod-name>
-
-2. **Verify Cluster Health:**  
-   Check that all pods and services are running
-   ```bash
+   kubectl logs <pod-name>  
+   
+   # Verify Cluster Health:  
+   # Check that all pods and services are running
    kubectl get pods
-   kubectl get services 
+   kubectl get services  
 
-3. **Inspect Load Balancer:**  
-   If the services are not accessible, inspect the status of the load balancer
-   ```bash
+   # Inspect Load Balancer:  
+   # If the services are not accessible, inspect the status of the load balancer
    kubectl describe service <service-name>
 
